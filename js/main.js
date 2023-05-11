@@ -44,15 +44,25 @@ function nascondiNumeri() {
 
 // Funzione legata a timer 2
 function chiediNumeri() {
+    let numeriGiaInseriti = [];             // Creo array per numeri già inseriti doppioni e lo setto vuoto
+
     // Creo ciclo
     for (let i = 0; i < 5; i++) {
         numeroInseritoUtente = parseInt(prompt("Dimmi il tuo numero"));     // Chiedo numero a utente
-        if (arrayNumeri.includes(numeroInseritoUtente)) {                   // SE numero è incluso in array
+        if (!numeriGiaInseriti.includes(numeroInseritoUtente)) {            // SE numero richiesto non è già stato inserito
+            numeriGiaInseriti.push(numeroInseritoUtente);                   // Pusha in numeri già inseriti
+        } else {                                                            // ALTRIMENTI
+            numeriGiaInseriti.push("");                                     // Pusha spazio vuoto (serve per il contatore)
+        }
+        
+        console.log(numeriGiaInseriti);                                     // Loggo i numeri inseriti da utente
+        if (arrayNumeri.includes(numeriGiaInseriti[i])) {                   // SE numero (preso da array numeri inseriti) è incluso in array numeri casuali
             punti++;                                                        // Incrementa punteggio
             elRisultato.innerHTML += `Complimenti, ${numeroInseritoUtente} era presente tra i numeri!<br>`;
         }
         console.log(punti);         // Loggo punti in console
     }
+    
     elRisultato.innerHTML += "Hai totalizzato " + punti + " punti";         // Inietto risultato in HTML
 }
 
