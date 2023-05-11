@@ -15,17 +15,19 @@ let timer, timer2;          // Setto i 2 timer (uno per fare sparire numeri, uno
 let secondi = "30";         // Setto seconedi dopo il quale numeri a schermo spariscono
 let arrayNumeri = [];       // Setto array numeri casuali a valore "vuoto"
 let punti = 0;              // Setto punti iniziali a 0
+let elDiv;
 
 // Creo ciclo
 for (let i = 0; arrayNumeri.length < 5; i++) {
-    const elDiv = document.createElement("div");               // Creo elemento DIV
+    elDiv = document.createElement("div");                     // Creo elemento DIV
     const numeroRandom = Math.floor(Math.random() * 50) + 1;   // Genero numero casuale da 1 a 50
     if (!arrayNumeri.includes(numeroRandom)) {                 // SE numero generato NON è già presente in array
         arrayNumeri.push(numeroRandom);                        // Pusho numero in array
     }
-    elDiv.append(numeroRandom);                                // Appendo numero creato in DIV
-    elOutput.append(elDiv);                                    // Appendo DIV a Output in HTML
 }
+
+elDiv.append(arrayNumeri);                                     // Appendo array numero a elemento DIV
+elOutput.append(elDiv);                                        // Appendo elemento DIV a Output in HTML
 
 console.log(arrayNumeri);                                      //Loggo array in console
 timer = setTimeout(nascondiNumeri, parseInt(secondi) * 980);   // Setto funzione legata a timer 1 (nascondo numeri)
