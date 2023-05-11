@@ -12,15 +12,17 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 const elOutput = document.getElementById("output");                 // Collego DIV output da HTML
 const elRisultato = document.getElementById("risulatoPunteggio");   // Collego DIV risultatoPunteggio da HTML
 let timer, timer2;          // Setto i 2 timer (uno per fare sparire numeri, uno per richiesta numeri utente)
-let secondi = "30";         // Setto seconedi dopo il quale numeri a schermo spariscono
+let secondi = "1";         // Setto seconedi dopo il quale numeri a schermo spariscono
 let arrayNumeri = [];       // Setto array numeri casuali a valore "vuoto"
 let punti = 0;              // Setto punti iniziali a 0
 
 // Creo ciclo
-for (let i = 0; i < 5; i++) {
+for (let i = 0; arrayNumeri.length < 5; i++) {
     const elDiv = document.createElement("div");               // Creo elemento DIV
     const numeroRandom = Math.floor(Math.random() * 50) + 1;   // Genero numero casuale da 1 a 50
-    arrayNumeri.push(numeroRandom);                            // Pusho numero in array precendentemente creato
+    if (!arrayNumeri.includes(numeroRandom)) {                 // SE numero generato NON è già presente in array
+        arrayNumeri.push(numeroRandom);                        // Pusho numero in array
+    }
     elDiv.append(numeroRandom);                                // Appendo numero creato in DIV
     elOutput.append(elDiv);                                    // Appendo DIV a Output in HTML
 }
