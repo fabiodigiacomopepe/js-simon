@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 50px;
+}
+
+#output div {
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 30px;
+}
+
+#risulatoPunteggio {
+    font-size: 30px;
+}
+
+.hidden {
+    display: none;
+}
