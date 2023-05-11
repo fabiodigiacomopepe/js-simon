@@ -1,3 +1,4 @@
+/* Regole generali pagina */
 * {
     margin: 0;
     padding: 0;
@@ -8,16 +9,19 @@ body {
     padding: 50px;
 }
 
+/* Regole div generati contenenti numeri randomici */
 #output div {
     display: inline-block;
     margin-right: 30px;
     font-size: 30px;
 }
 
+/* Regole div per risultato del puntaggio fatto */
 #risulatoPunteggio {
     font-size: 30px;
 }
 
+/* HIDDEN */
 .hidden {
     display: none;
 }
