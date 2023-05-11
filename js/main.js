@@ -17,17 +17,20 @@ let arrayNumeri = [];       // Setto array numeri casuali a valore "vuoto"
 let punti = 0;              // Setto punti iniziali a 0
 let elDiv;
 
+elDivGeneral = document.createElement("div");                  // Creo elemento DIV GENERALE
+
 // Creo ciclo
 for (let i = 0; arrayNumeri.length < 5; i++) {
-    elDiv = document.createElement("div");                     // Creo elemento DIV
     const numeroRandom = Math.floor(Math.random() * 50) + 1;   // Genero numero casuale da 1 a 50
     if (!arrayNumeri.includes(numeroRandom)) {                 // SE numero generato NON è già presente in array
+        elDiv = document.createElement("div");                 // Creo elemento DIV
         arrayNumeri.push(numeroRandom);                        // Pusho numero in array
+        elDiv.append(numeroRandom);                            // Appendo numero random a elemento DIV
+        elDivGeneral.append(elDiv);                            // Creo elemento DIV CONTENENTE NUMERO
     }
 }
 
-elDiv.append(arrayNumeri);                                     // Appendo array numero a elemento DIV
-elOutput.append(elDiv);                                        // Appendo elemento DIV a Output in HTML
+elOutput.append(elDivGeneral);                                 // Appendo elemento DIV a Output in HTML
 
 console.log(arrayNumeri);                                      //Loggo array in console
 timer = setTimeout(nascondiNumeri, parseInt(secondi) * 980);   // Setto funzione legata a timer 1 (nascondo numeri)
